@@ -26,13 +26,49 @@
     <div class="wrapper-2">
       <h2>Spending - Last 7 days</h2>
       <div class="bar">
-        <div class="mon"><div></div><p>mon</p></div>
-        <div class="tue"><div></div><p>tue</p></div>
-        <div class="wed"><div></div><p>wed</p></div>
-        <div class="thu"><div></div><p>thu</p></div>
-        <div class="fri"><div></div><p>fri</p></div>
-        <div class="sat"><div></div><p>sat</p></div>
-        <div class="sun"><div></div><p>sun</p></div>
+        <div class="item" data-chart-item tabindex="0">
+          <div class="bar-container" data-chart-container style="--order:1;">
+            <div class="chart__bar" data-bar><p>$<span data-spending></span></p></div>
+          </div>
+          <p>mon</p>
+        </div>
+        <div class="item" data-chart-item tabindex="0">
+          <div class="bar-container" data-chart-container style="--order:2;">
+            <div class="chart__bar" data-bar><p>$<span data-spending></span></p></div>
+          </div>
+          <p>tue</p>
+        </div>
+        <div class="item" data-chart-item tabindex="0">
+          <div class="bar-container" data-chart-container style="--order:3;">
+            <div class="chart__bar" data-bar><p>$<span data-spending></span></p></div>
+          </div>
+          <p>wed</p>
+        </div>
+        <div class="item" data-chart-item tabindex="0">
+          <div class="bar-container" data-chart-container style="--order:4;">
+            <div class="chart__bar" data-bar><p>$<span data-spending></span></p></div>
+          </div>
+          <p>thu</p>
+        </div>
+        <div class="item" data-chart-item tabindex="0">
+          <div class="bar-container" data-chart-container style="--order:5;">
+            <div class="chart__bar" data-bar><p>$<span data-spending></span></p></div>
+          </div>
+          <p>fri</p>
+        </div>
+        <div class="item" data-chart-item tabindex="0">
+          <div class="bar-container" data-chart-container style="--order:6;">
+            <div class="chart__bar" data-bar><p>$<span data-spending></span></p></div>
+          </div>
+          <p>sat</p>
+        </div>
+        <div class="item" data-chart-item tabindex="0">
+          <div class="bar-container" data-chart-container style="--order:7;">
+            <div class="chart__bar" data-bar><p>$<span data-spending></span></p></div>
+          </div>
+          <p>sun</p>
+        </div>
+        
       </div>
       <div class="line"></div>
       <div class="total">
@@ -47,5 +83,12 @@
       </div>
     </div>
   </main>
+
+  <script src="/script.js" defer></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", ()=>{
+        document.body.classList.remove("prevent-preload-transitions")
+    })
+</script>
 </body>
 </html>
