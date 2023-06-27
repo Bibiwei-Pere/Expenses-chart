@@ -43,6 +43,7 @@ p {
     gap: 20px;
     flex-direction: column;
 }
+
     /* Wrapper 1 */
 .wrapper-1 {
     display: flex;
@@ -60,9 +61,13 @@ p {
     /* Wrapper 2 */
 .wrapper-2 {
     border-radius: 15px;
-    padding: 30px;
+    padding: 40px;
     color: var(--Dark-brown);
     background-color: var(--Very-pale-orange);
+}
+
+h2 {
+    font-size: 35px;
 }
 
 .wrapper-2 div {
@@ -72,119 +77,62 @@ p {
 }
 
 .bar {
-    height: 300px;
-    padding: 30px 0;
-    margin-top: 30px;
+    display: flex;
+    gap: 1rem;
+    height: 15rem;
+    margin-top: 5.5rem;
 }
 
-.mon {
+.item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 5px;
-    width: 14.2%;
-    margin-top: 150px;
+    gap: 1rem;
+    cursor: pointer;
 }
 
-.mon div {
+.bar-container {
+    flex-grow: 1;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+}
+
+.chart__bar {
+    position: relative;
+    width: 100%;
     background-color: var(--Soft-red);
-    border-radius: 8px;
-    height: 70px;
+    border-radius: 0.5rem;
+    height: 0;
+    transition: height 0.5s calc(var(--order) * 100ms) cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.tue {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-    width: 14.2%;
-    margin-top: 100px;
+.chart__bar p {
+    border: 1px solid #000;
+    position: absolute;
+    bottom: calc(100% + 0.5rem);
+    left: 50%;
+    transform: translate(-50%, 10px);
+    z-index: 10;
+    color: var(--Cream);
+    background-color: var(--Dark-brown);
+    border-radius: 0.5rem;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 15px 7px;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.3s, opacity 0.3s, transform 0.3s;
 }
-
-.tue div {
-    background-color: var(--Soft-red);
-    border-radius: 8px;
-    height: 130px;
-}
-
-.wed {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    align-items: center;
-    margin-top: 1x;
-    width: 14.2%;
-}
-
-.wed div {
+    
+.chart__bar--today {
     background-color: var(--Cyan);
-    border-radius: 8px;
-    height: 1000px;
-}
-
-.thu {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-    width: 14.2%;
-    margin-top: 119px;
-}
-
-.thu div {
-    background-color: var(--Soft-red);
-    border-radius: 8px;
-    height: 100px;
-}
-
-.fri {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-    width: 14.2%;
-    margin-top: 130px;
-}
-
-.fri div {
-    background-color: var(--Soft-red);
-    border-radius: 8px;
-    height: 85px;
-}
-
-.sat {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-    width: 14.2%;
-    margin-top: 60px;
-}
-
-.sat div {
-    background-color: var(--Soft-red);
-    border-radius: 8px;
-    height: 180px;
-}
-
-.sun {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-    width: 14.2%;
-    margin-top: 125px;
-}
-
-.sun div {
-    background-color: var(--Soft-red);
-    border-radius: 8px;
-    height: 90px;
 }
 
 .line {
     border: 1px solid var(--Cream);
-    margin-bottom: 40px;
+    margin: 30px 0;
 }
 
 .total div {
@@ -195,40 +143,54 @@ p {
 .total div:last-child {
     align-items: end;
     justify-content: flex-end;
+    margin-bottom: 3px;
 }
 
 /* Active States */
-.mon div:hover, .mon div:focus, .mon div:active {
-    background: var(--Soft-red-2);
-}
+@media (hover: hover) and (pointer: fine) {
+    .item:hover .chart__bar p {
+        visibility: visible;
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
 
-.tue div:hover, .tue div:focus, .tue div:active {
-    background: var(--Soft-red-2);
-}
+    .item:hover .chart__bar {
+        background-color: var(--Soft-red-2);
+    }
 
-.wed div:hover, .wed div:focus, .wed div:active {
-    background: var(--Cyan-2);
-}
-
-.thu div:hover, .thu div:focus, .thu div:active {
-    background: var(--Soft-red-2);
-}
-
-.fri div:hover, .fri div:focus, .fri div:active {
-    background: var(--Soft-red-2);
-}
-
-.sat div:hover, .sat div:focus, .sat div:active {
-    background: var(--Soft-red-2);
-}
-
-.sun div:hover, .sun div:focus, .sun div:active {
-    background: var(--Soft-red-2);
+    .item:hover .chart__bar--today {
+        background-color: var(--Cyan-2);
+    }
 }
 
 /* Responsive */
 @media (max-width:700px) {
     .container {
-        min-width: 90%;
+        max-width: 94%;
+        min-width: 94%;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    h2 {
+        font-size: 25px;
+    }
+
+    h3 {
+        font-size: 18px;
+    }
+    p {
+        font-size: 15px;
+    }
+    .bar {
+        height: 10rem;
+        margin-top: 3.5rem;
+    }
+
+    .chart__bar p {
+        font-size: 14px;
+        padding: 8px 5px;
     }
 }
